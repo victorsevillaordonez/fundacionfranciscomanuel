@@ -98,7 +98,7 @@ WSGI_APPLICATION = 'fundacionfm.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-DATABASES = {
+"""DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'fundacion_db',
@@ -107,8 +107,8 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '',
     }
-}
-"""DATABASES = {
+}"""
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'db5pg8vfh1stoi',
@@ -117,7 +117,7 @@ DATABASES = {
         'HOST': 'ec2-107-22-221-60.compute-1.amazonaws.com',
         'PORT': '5432',
     }
-}"""
+}
 
 
 
