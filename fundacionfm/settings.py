@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -38,14 +39,19 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'home',
-    'bootstrap4',
     'rest_framework',
+    'gunicorn',
+    'psycopg2',
+    'bootstrap4',
+
 ]
 
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.AllowAny',
-    )
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny'
+    ]
 }
 
 MIDDLEWARE = [
@@ -59,8 +65,6 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'fundacionfm.urls'
-
-AUTH_PROFILE_MODULE = 'home.Usuario'
 
 TEMPLATES = [
     {
@@ -85,7 +89,7 @@ WSGI_APPLICATION = 'fundacionfm.wsgi.application'
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 DATABASES = {
-   'default': {
+    'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'fundacion_db',
         'USER': 'postgres',
@@ -94,6 +98,7 @@ DATABASES = {
         'PORT': '',
     }
 }
+
 
 
 # Password validation
@@ -113,6 +118,8 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+AUTH_PROFILE_MODULE = 'home.Usuario'
 
 
 # Internationalization
@@ -139,4 +146,3 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
